@@ -23,9 +23,9 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './Develop/public/notes.html'));
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './Develop/public/notes.html')); 
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, './Develop/public/notes.html')); 
+// });
 
 function createNewNote(body, notesArray) {
     const newNote = body;
@@ -40,7 +40,7 @@ function createNewNote(body, notesArray) {
 
     notesArray.push(newNote);
     fs.writeFileSync(
-        path.join(__dirname, './Develop//db/db.json'),
+        path.join(__dirname, './Develop/db/db.json'),
         JSON.stringify(notesArray, null, 2)
     );
     return newNote;
